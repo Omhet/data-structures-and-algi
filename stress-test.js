@@ -1,25 +1,30 @@
+const _ = require('lodash');
+
 exports.stressTest = (naive, testing, args = []) => {
     let i = 0;
 
     while (true) {
         const arg = args[i];
-        
-        console.log(`Arg: ${arg}`);
 
         if (arg === undefined) {
             console.log('No bugs, nice!')
             return;
         }
 
-        const a = naive(arg);
-        const b = testing(arg);
+        for (const item of arg) {
+            console.log(`Arg: ${item}`);
+        }
 
-        if (a !== b) {
-            console.log('FAILED', `Arg: ${arg}`, `Naive: ${a}`, `Testing: ${b}`);
+        const a = naive(...arg);
+        const b = testing(...arg);
+
+
+        if (!_.isEqual(a, b)) {
+            console.log('FAILED', `Naive: ${a}`, `Testing: ${b}`);
             return;
         }
 
-        console.log(`Arg: ${arg}`, `Naive: ${a}`, `Testing: ${b}`);
+        console.log(`Naive: ${a}`, `Testing: ${b}`);
         i++;
     }
 };

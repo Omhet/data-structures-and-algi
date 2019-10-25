@@ -1,0 +1,11 @@
+{
+  "name": "my-work",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Omhet/data-structures-and-algorithms-coursera.git",
+  "author": "<vlivanov@aligntech.com>",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.15"
+  }
+}
