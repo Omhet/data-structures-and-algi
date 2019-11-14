@@ -25,7 +25,15 @@ function readLine(line) {
 
 
 const solution = (w, bars) => {
-    console.log(w, bars)
+    let result = 0
+
+    for (let bar of bars) {
+        if (result + bar <= w) {
+            result += bar
+        }
+    }
+
+    return result;
 };
 
 const naive = (w, bars) => {
